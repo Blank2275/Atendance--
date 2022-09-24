@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Attendance++</title>
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	<style>
+		body {
+			background-color: #7f9fbe;
+			height: calc(100vh - 100px);
+			margin: 0;
+			padding: 0;
+		}
+
+		.header {
+			height: 80px;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			font-size: 40px;
+			border-bottom: 2px solid white;
+			color: rgb(65, 65, 65);
+		}
+
+		.header > button {
+			height: 40px;
+			width: 120px;
+			font-size: 22px;
+			margin-right: 50px;
+			margin-left: 10px;
+			float: left;
+			top: 50%;
+			position: absolute;
+			transform: translate(0, -50%);
+			border-radius: 5px;
+			border: 1px solid black;
+			transition: all 0.3s;
+			background-color: #9ba4ac;
+		}
+
+		.header > button:hover {
+			filter: brightness(1.2);
+		}
+
+		.header > span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 60px;
+		}
+
+		.body {
+			margin-top: 80px;
+		}
+
+		.body > ol {
+			margin: 20px;
+			margin-top: 100px;
+			font-size: 26px;
+		}
+
+		.body > ol > li > div > div {
+			font-size: 18px;
+		}
+
+		.body > ol > li {
+			margin-bottom: 10px;
+		}
+
+		.action-container {
+			float: right;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			height: 50px;
+		}
+
+		.action-container > button {
+			height: 30px;
+			border-radius: 5px;
+			font-size: 18px;
+		}
+
+		#tardy {
+			background-color: #ffc300;
+		}
+
+		#absent {
+			background-color: #ff3358;
+		}
+	</style>
+	<body>
+		<div class="header">
+			<button id="newPin">New Pin</button>
+			<span id="pinDisplay"></span>
+		</div>
+		<div class="body">
+			<ol id="studentsList">
+				<li>
+					<div>
+						<span>No Users</span>
+						<!-- <div class="action-container">
+							<button onclick="mark(this)" id="tardy">
+								Mark Tardy
+							</button>
+							<button id="absent">Mark Absent</button>
+						</div> -->
+						<!-- <div class="footer">Time | pins</div> -->
+					</div>
+				</li>
+			</ol>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+		<script src="teacher.js"></script>
+		<script>
+			function mark(ev) {
+				let el = $(ev);
+				if (el.text().trim() === 'Mark Tardy') {
+					$(ev)
+						.parent()
+						.parent()
+						.parent()
+						.css('background-color', '#ffc300');
+				}
+			}
+		</script>
+	</body>
+</html>

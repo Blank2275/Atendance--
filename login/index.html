@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Submit</title>
+	</head>
+	<style>
+		body {
+			background-image: linear-gradient(blue, lightblue);
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			flex-direction: column;
+		}
+
+		.container > input[type='text'] {
+			width: 300px;
+			height: 40px;
+			padding-left: 10px;
+			font-size: large;
+			border-radius: 10px;
+		}
+
+		.container > label {
+			font-size: 22px;
+			color: white;
+		}
+
+		.container > button {
+			width: 120px;
+			height: 50px;
+			font-size: 25px;
+			cursor: pointer;
+			border-radius: 10px;
+			border: none;
+			border: 2px solid black;
+			transition: all 0.3s;
+		}
+
+		.container > button:hover {
+			/* background-image: linear-gradient(to bottom right, red, yellow); */
+			background-color: rgb(171, 171, 171);
+			color: white;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<label for="name">Name</label>
+			<input type="text" id="name" autocomplete="off" />
+			<br />
+			<label for="pin">Pin</label>
+			<input type="text" id="pin" autocomplete="off" />
+			<br />
+			<button id="submit">Submit</button>
+		</div>
+	</body>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/login.js"></script>
+</html>
